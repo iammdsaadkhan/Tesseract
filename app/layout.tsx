@@ -1,32 +1,26 @@
-import type { Metadata } from "next";
-import { Orbitron, Poppins } from "next/font/google";
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const orbitron = Orbitron({ 
-  subsets: ["latin"], 
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-orbitron" 
-});
-
-const poppins = Poppins({ 
-  subsets: ["latin"], 
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-poppins" 
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tesseract | IITM BS Community",
-  description: "A gamified student community platform for IITM BS students — where you come to relax, play, connect, and belong.",
+  description: "The premier gamified community for IITM BS Students.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-// Find your html tag in app/layout.tsx and change it to this:
-<html lang="en" className="dark">
+    // Forced dark class here for permanent dark mode
+    <html lang="en" className="dark">
+      <body
+        className={`${inter.className} bg-n-8 text-n-1 antialiased`}
+        style={{ backgroundColor: "#0E0C15" }}
+      >
         {children}
       </body>
     </html>
