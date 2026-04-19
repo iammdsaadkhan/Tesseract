@@ -15,7 +15,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // Forced dark class here for permanent dark mode
     <html lang="en" className="dark">
       <body
         className={`${inter.className} bg-n-8 text-n-1 antialiased`}
