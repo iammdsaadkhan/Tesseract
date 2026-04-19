@@ -25,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} ${orbitron.variable} font-poppins bg-n-1 text-white antialiased`}>
+// Find your html tag in app/layout.tsx and change it to this:
+<html lang="en" className="dark">
         {children}
       </body>
     </html>

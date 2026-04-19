@@ -10,6 +10,8 @@
   --font-sora: "Sora", sans-serif;
   --font-code: "Source Code Pro", monospace;
   --font-grotesk: "Space Grotesk", sans-serif;
+  --background: 252 24% 6%; /* This is the dark color */
+  --foreground: 0 0% 100%;
 }
 
 * {
@@ -18,6 +20,10 @@
 
 @layer base {
   body {
+    {
+  background-color: #0E0C15 !important;
+  color: #FFFFFF !important;
+}
     @apply font-sans bg-n-8 text-n-1 text-base;
   }
 }

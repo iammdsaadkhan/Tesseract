@@ -49,7 +49,7 @@ const Navbar = (props: Props) => {
     <div
       className={cn(
         `fixed top-0 left-0 w-full z-50 border-b border-n-6/50 transition-colors duration-300`,
-        openNavigation ? "bg-n-1" : "bg-n-1/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+        openNavigation ? "bg-n-8/90" : "bg-n-8/90 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
       )}
     >
       <div className={cn(`flex items-center px-5 max-lg:py-4 lg:px-7.5 xl:px-10`)}>
@@ -63,7 +63,7 @@ const Navbar = (props: Props) => {
 
         <nav
           className={cn(
-            `fixed inset-x-0 bottom-0 top-20 hidden bg-n-1 lg:static lg:mx-auto lg:flex lg:bg-transparent`,
+            `fixed inset-x-0 bottom-0 top-20 hidden bg-n-8/90 lg:static lg:mx-auto lg:flex lg:bg-transparent`,
             openNavigation ? "flex" : "hidden"
           )}
         >
