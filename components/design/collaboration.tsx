@@ -1,14 +1,39 @@
-import { images } from "@/constants";
-import Image from "next/image";
+import React from "react";
 
-export const RightCurve = () => (
-  <div className="pointer-events-none absolute left-full top-1/2 -mt-1 ml-10 hidden w-[10.125rem] xl:block">
-    <Image src={images.curve2} width={162} height={76} alt="Curve 2" />
-  </div>
-);
+export const RightCurve = () => {
+  return (
+    <div className="hidden absolute top-1/2 left-full w-[10.125rem] -mt-1 ml-10 pointer-events-none xl:block">
+      <svg width="162" height="76" viewBox="0 0 162 76" fill="none">
+        <path
+          d="M0 0C40 0 76 36 76 76"
+          stroke="#26242C"
+          strokeWidth="1"
+        />
+        <path
+          d="M162 76C162 36 126 0 86 0"
+          stroke="#26242C"
+          strokeWidth="1"
+        />
+      </svg>
+    </div>
+  );
+};
 
-export const LeftCurve = () => (
-  <div className="pointer-events-none absolute right-full top-1/2 -mt-1 mr-10 hidden w-[32.625rem] xl:block">
-    <Image src={images.curve1} width={522} height={182} alt="Curve 1" />
-  </div>
-);
+export const LeftCurve = () => {
+  return (
+    <div className="hidden absolute top-1/2 right-full w-[10.125rem] -mt-1 mr-10 pointer-events-none xl:block">
+      <svg width="162" height="76" viewBox="0 0 162 76" fill="none">
+        <path
+          d="M162 0C122 0 86 36 86 76"
+          stroke="#26242C"
+          strokeWidth="1"
+        />
+        <path
+          d="M0 76C0 36 36 0 76 0"
+          stroke="#26242C"
+          strokeWidth="1"
+        />
+      </svg>
+    </div>
+  );
+};
