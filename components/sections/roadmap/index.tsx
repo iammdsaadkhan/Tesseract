@@ -3,69 +3,60 @@ import Heading from "@/components/atoms/heading";
 import TagLine from "@/components/atoms/tag-line";
 import { Gradient } from "@/components/design/roadmap";
 import Section from "@/components/layout/section";
-import { images, roadmap } from "@/constants";
+import { roadmap } from "@/constants";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import React from "react";
 
 type Props = {};
 
-const Roadmap = (props: Props) => {
+const Events = (props: Props) => {
   return (
-    <Section id="roadmap" className="overflow-hidden">
+    <Section id="events" className="overflow-hidden">
       <div className="container md:pb-10">
-        <Heading tag="Ready to get started" title="What we're working on" />
+        <Heading 
+          tag="Join the Action" 
+          title="Upcoming & Past Events" 
+          className="font-orbitron drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+        />
 
         <div className="relative grid gap-6 md:grid-cols-2 md:gap-4 md:pb-28">
           {roadmap.map((item) => {
-            const status = item.status === "done" ? "Done" : "In progress";
+            const isActive = item.status === "progress"; 
 
             return (
               <div
                 key={item.id}
                 className={cn(
-                  "md:flex even:md:translate-y-[7rem] p-0.25 rounded-[2.5rem]",
-                  item.colorful ? "bg-conic-gradient" : "bg-n-6"
+                  "md:flex even:md:translate-y-[7rem] p-0.5 rounded-[2.5rem] transition-transform duration-300 hover:-translate-y-2 group cursor-pointer",
+                  item.colorful ? "bg-gradient-to-br from-color-4 to-color-5 shadow-[0_0_20px_rgba(59,130,246,0.2)]" : "bg-n-6/50 hover:bg-gradient-to-br hover:from-color-1 hover:to-color-2 hover:shadow-[0_0_20px_rgba(239,68,68,0.2)]"
                 )}
               >
-                <div className="relative overflow-hidden rounded-[2.4375rem] bg-n-8 p-8 xl:p-15">
-                  <div className="absolute left-0 top-0 max-w-full">
-                    <Image
-                      src={images.grid}
-                      alt="grid"
-                      width={550}
-                      height={550}
-                      className="w-full"
-                    />
-                  </div>
-                  <div className="relative z-1">
-                    <div className="mb-8 flex max-w-[27rem] items-center justify-between md:mb-20">
-                      <TagLine>{item.date}</TagLine>
+                <div className="relative flex flex-col justify-between w-full overflow-hidden rounded-[2.4375rem] bg-n-1/90 backdrop-blur-xl p-8 xl:p-15 transition-colors group-hover:bg-n-1/70">
+                  
+                  {/* CSS Tech Grid (Replaced the old Brainwave image) */}
+                  <div className="absolute inset-0 opacity-10 pointer-events-none bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                  
+                  <div className="relative z-1 flex-grow flex flex-col">
+                    <div className="mb-12 flex items-center justify-between">
+                      <TagLine className="text-color-2 font-orbitron">{item.date}</TagLine>
 
-                      <div className="flex items-center rounded bg-n-1 px-4 py-1 text-n-8">
-                        <Image
-                          src={item.status === "done" ? images.done : images.loading1}
-                          width={16}
-                          height={16}
-                          alt={status}
-                          className="mr-2.5"
-                        />
-                        <div className="tagline">{status}</div>
+                      <div className="flex items-center rounded bg-n-2 border border-n-6 px-4 py-1 text-white shadow-[0_0_10px_rgba(255,255,255,0.02)]">
+                        <div className={cn(
+                            "w-2 h-2 rounded-full mr-2.5 shadow-[0_0_8px_currentColor]",
+                            isActive ? "bg-color-3 text-color-3" : "bg-n-4 text-n-4"
+                        )}></div>
+                        <div className="font-orbitron text-[0.65rem] uppercase tracking-wider">
+                            {isActive ? "Live / Upcoming" : "Completed"}
+                        </div>
                       </div>
                     </div>
 
-                    <div className="-mx-15 -my-10 mb-10">
-                      <Image
-                        src={item.imageUrl}
-                        className="w-full"
-                        width={630}
-                        height={420}
-                        alt={item.title}
-                      />
-                    </div>
-
-                    <h4 className="h4 mb-4">{item.title}</h4>
-                    <p className="body-2 text-n-4">{item.text}</p>
+                    <h4 className="font-orbitron text-3xl mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-color-4 group-hover:to-color-5 transition-all duration-300">
+                      {item.title}
+                    </h4>
+                    <p className="font-poppins body-2 text-n-3">
+                        {item.text}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -76,11 +67,16 @@ const Roadmap = (props: Props) => {
         </div>
 
         <div className="mt-12 flex justify-center md:mt-15 xl:mt-20">
-          <Button href="#roadmap">Our roadmap</Button>
+          <Button 
+            href="/events" 
+            className="!bg-transparent border-2 border-color-4 !text-color-4 hover:!bg-color-4/10 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300"
+          >
+            View All Events
+          </Button>
         </div>
       </div>
     </Section>
   );
 };
 
-export default Roadmap;
+export default Events;

@@ -1,27 +1,28 @@
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
+import Hero from "@/components/sections/hero";
 import Benefits from "@/components/sections/benefits";
 import Collaboration from "@/components/sections/collaboration";
-import Hero from "@/components/sections/hero";
-import Pricing from "@/components/sections/pricing";
 import Roadmap from "@/components/sections/roadmap";
-import Services from "@/components/sections/services";
+import JoinUs from "@/components/sections/join-us"; // Your new CTA section
 import ButtonGradient from "@/components/svg/button-gradient";
 import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
     <main>
-      <div className={cn("overflow-hidden pt-[4.75rem] lg:pt-[5.25rem]")}>
+      {/* Added bg-n-1 to ensure the deep black background carries through everything */}
+      <div className={cn("overflow-hidden pt-[4.75rem] lg:pt-[5.25rem] bg-n-1")}>
         <Navbar />
         <Hero />
-        <Benefits />
-        <Collaboration />
-        <Services />
-        <Pricing />
-        <Roadmap />
+        <Benefits />          {/* What We Offer */}
+        <Collaboration />     {/* Our Communities */}
+        <Roadmap />           {/* Upcoming & Past Events */}
+        <JoinUs />            {/* Ready to Join? */}
         <Footer />
       </div>
+      
+      {/* Keeps Brainwave's native SVG gradient definitions active */}
       <ButtonGradient />
     </main>
   );

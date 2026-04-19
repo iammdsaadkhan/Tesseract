@@ -1,81 +1,79 @@
 import React from "react";
 import Section from "@/components/layout/section";
-import { collabApps, collabContent, collabText, images } from "@/constants";
-import Image from "next/image";
-import Button from "@/components/atoms/button";
+import { collabContent, collabText } from "@/constants";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { LeftCurve, RightCurve } from "@/components/design/collaboration";
+import Heading from "@/components/atoms/heading"; // Fixed absolute import path!
 
-type Props = {};
+// We map extra styling and route data to the content from your constants file
+const communityDetails = [
+  { url: "/community/gaming", gradient: "from-color-1 to-color-2", shadow: "group-hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]", icon: "🎮" },
+  { url: "/community/creative", gradient: "from-color-3 to-color-4", shadow: "group-hover:shadow-[0_0_20px_rgba(34,197,94,0.4)]", icon: "🎨" },
+  { url: "/community/social", gradient: "from-color-4 to-color-5", shadow: "group-hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]", icon: "💬" },
+];
 
-const Collaboration = (props: Props) => {
+const Communities = () => {
   return (
-    <Section id="collaboration" crosses>
-      <div className="container lg:flex">
-        <div className="max-w-[25rem]">
-          <h2 className="h2 mb-12 max-md:mb-4">AI Chat App for seamless collaboration</h2>
-          <ul className="mb-10 max-w-[22rem] md:mb-14">
-            {collabContent.map((item) => (
-              <li key={item.id} className="mb-3 py-3">
-                <div className="flex items-center">
-                  <Image src={images.check} width={24} height={24} alt="check" />
-                  <h6 className="body-2 ml-5">{item.title}</h6>
-                </div>
-                {item.text && <p className="body-2 mt-3 text-n-4">{item.text}</p>}
-              </li>
-            ))}
-          </ul>
-          <Button>Try it now</Button>
-        </div>
-
-        <div className="mt-4 lg:ml-auto xl:w-[38rem]">
-          <p className="body-2 mb-8 text-n-4 md:mb-16 lg:mx-auto lg:mb-32 lg:w-[22rem]">
+    <Section id="communities" crosses>
+      <div className="container relative z-2">
+        <div className="text-center max-w-[50rem] mx-auto mb-16 md:mb-20">
+          <Heading
+            className="font-orbitron drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+            title="Our Communities"
+          />
+          <p className="body-2 text-n-3 font-poppins text-lg mt-4">
             {collabText}
           </p>
+        </div>
 
-          <div className="relative left-1/2 flex aspect-square w-[22rem] -translate-x-1/2 scale-75 rounded-full border border-n-6 md:scale-100">
-            <div className="m-auto flex aspect-square w-60 rounded-full border border-n-6">
-              <div className="m-auto aspect-square w-24 rounded-full bg-conic-gradient p-[0.2rem]">
-                <div className="flex h-full items-center justify-center rounded-full bg-n-8">
-                  <Image src={images.brainwaveSymbol} width={48} height={48} alt="brainwave" />
-                </div>
-              </div>
-            </div>
+        {/* 3-Column Grid for Communities */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {collabContent.map((item, index) => {
+            const details = communityDetails[index];
 
-            <ul>
-              {collabApps.map((item, index) => (
-                <li
-                  key={item.id}
-                  className={cn(
-                    "absolute left-1/2 top-0 -ml-[1.6rem] h-1/2 origin-bottom",
-                    `rotate-${index * 45}`
-                  )}
-                >
-                  <div
-                    className={cn(
-                      "relative -top-[1.6rem] flex w-[3.2rem] h-[3.2rem] bg-n-7 border border-n-1/15 rounded-xl",
-                      `-rotate-${index * 45}`
-                    )}
-                  >
-                    <Image
-                      src={item.icon}
-                      alt={item.title}
-                      width={36}
-                      height={36}
-                      className="m-auto"
-                    />
+            return (
+              <Link 
+                key={item.id} 
+                href={details.url}
+                className="group relative block transition-transform duration-300 hover:-translate-y-2"
+              >
+                {/* Gradient Border Wrapper */}
+                <div className={cn(
+                  "absolute inset-0 rounded-2xl bg-gradient-to-br opacity-70 transition-opacity duration-300 group-hover:opacity-100",
+                  details.gradient,
+                  details.shadow
+                )} />
+                
+                {/* Inner Card (Glassmorphism) */}
+                <div className="relative h-full flex flex-col items-center text-center m-[2px] rounded-2xl bg-n-1/90 backdrop-blur-xl p-8 transition-colors duration-300 group-hover:bg-n-1/70">
+                  
+                  {/* Glowing Icon Placeholder */}
+                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-n-2 shadow-[inset_0_0_15px_rgba(255,255,255,0.05)] text-4xl">
+                    {details.icon}
                   </div>
-                </li>
-              ))}
-            </ul>
-
-            <LeftCurve />
-            <RightCurve />
-          </div>
+                  
+                  <h4 className="h5 mb-4 font-orbitron text-white">
+                    {item.title}
+                  </h4>
+                  
+                  <p className="body-2 text-n-3 font-poppins mb-6 flex-grow">
+                    {item.text}
+                  </p>
+                  
+                  <div className="mt-auto inline-flex items-center font-orbitron text-xs font-bold uppercase tracking-wider text-color-4 transition-colors group-hover:text-color-5">
+                    Enter Portal 
+                    <svg className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </Section>
   );
 };
 
-export default Collaboration;
+export default Communities;
