@@ -1,43 +1,35 @@
-import { cn } from "@/lib/utils";
-import ButtonSvg from "@/components/svg/button-svg";
-import React from "react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type Props = {
   className?: string;
   href?: string;
-  children: React.ReactNode;
   onClick?: () => void;
+  children: React.ReactNode;
   px?: string;
   white?: boolean;
 };
 
-const Button = ({ className, href = "", children, onClick, px = "px-7", white = false }: Props) => {
-  const buttonClasses = cn(
-    `button relative inline-flex items-center justify-center h-11`,
-    `transition-colors hover:text-color-1`,
-    px,
-    white ? "text-n-8" : "text-n-1",
-    className || ""
+const Button = ({ className, href, onClick, children, px, white }: Props) => {
+  const classes = cn(
+    "button relative inline-flex items-center justify-center h-11 transition-all duration-300 px-7 font-orbitron text-xs font-bold uppercase tracking-widest rounded-lg",
+    white ? "bg-n-1 text-n-8" : "bg-color-4 text-n-1 shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.8)]",
+    className
   );
 
-  const spanClasses = cn("relative z-10");
-
   const renderButton = () => (
-    <button className={buttonClasses} onClick={onClick}>
-      <span className={spanClasses}>{children}</span>
-      {ButtonSvg(white)}
+    <button className={classes} onClick={onClick}>
+      <span className="relative z-10">{children}</span>
     </button>
   );
 
   const renderLink = () => (
-    <Link href={href} className={buttonClasses}>
-      <span className={spanClasses}>{children}</span>
-      {ButtonSvg(white)}
+    <Link href={href || "/"} className={classes}>
+      <span className="relative z-10">{children}</span>
     </Link>
   );
 
-  return href !== "" ? renderLink() : renderButton();
+  return href ? renderLink() : renderButton();
 };
 
 export default Button;
