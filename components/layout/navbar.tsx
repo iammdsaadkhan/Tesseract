@@ -14,10 +14,10 @@ const Navbar = () => {
     <div className="fixed top-0 left-0 w-full z-50 border-b border-n-6 bg-n-8/90 backdrop-blur-sm">
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
         
-        {/* CHANGED: Replaced Text with Logo Image + mix-blend to hide the black background */}
+        {/* CHANGED: Updated to .png */}
         <Link className="block w-[12rem] xl:mr-8 flex items-center" href="/">
           <Image 
-            src="/tesseract-logo.jpg" 
+            src="/tesseract-logo.png" 
             alt="Tesseract Logo" 
             width={200} 
             height={50} 
