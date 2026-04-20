@@ -4,7 +4,6 @@ import Heading from "../../atoms/heading";
 import { benefits } from "@/constants";
 import Arrow from "@/components/svg/arrow";
 import { GradientLight } from "@/components/design/benefits";
-import ClipPath from "@/components/svg/clip-path";
 
 type Props = {};
 
@@ -17,14 +16,18 @@ const Benefits = (props: Props) => {
           title="What We Offer"
         />
 
-        <div className="mb-10 flex flex-wrap gap-10 justify-center">
+        <div className="mb-10 flex flex-wrap gap-8 justify-center">
           {benefits.map((item) => (
             <div
               key={item.id}
-              // Removed the inline style background URL to kill the light SVG
-              className="relative block p-0.5 md:max-w-sm group hover:-translate-y-2 transition-transform duration-300"
+              // Wrapper with padding (p-[2px]) to act as the border thickness, with rounded corners
+              className="relative block p-[2px] md:max-w-sm w-full group hover:-translate-y-2 transition-transform duration-300 rounded-[2rem] overflow-hidden shadow-[0_0_15px_rgba(0,0,0,0.5)]"
             >
-              <div className="pointer-events-none relative z-2 flex min-h-[22rem] flex-col p-[2.4rem]">
+              {/* Glowing Gradient Border Layer */}
+              <div className="absolute inset-0 bg-gradient-to-br from-color-4/40 via-n-8 to-color-5/40 opacity-70 group-hover:opacity-100 group-hover:from-color-4 group-hover:via-color-1 group-hover:to-color-5 transition-all duration-500"></div>
+
+              {/* Inner Dark Card container */}
+              <div className="relative z-2 flex min-h-[22rem] flex-col p-[2.4rem] bg-n-8 rounded-[1.9rem] transition-colors duration-300 group-hover:bg-n-8/90">
                 
                 {/* Card Title */}
                 <h5 className="font-orbitron text-2xl mb-5 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
@@ -32,11 +35,12 @@ const Benefits = (props: Props) => {
                 </h5>
                 
                 {/* Card Description */}
-                <p className="font-poppins body-2 mb-6 text-n-3">
+                <p className="font-poppins body-2 mb-6 text-n-3 flex-grow">
                   {item.text}
                 </p>
                 
                 <div className="mt-auto flex items-center">
+                  {/* Icon */}
                   <div className="text-4xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                     {item.iconUrl}
                   </div>
@@ -48,16 +52,8 @@ const Benefits = (props: Props) => {
                 </div>
               </div>
 
+              {/* Keeps the subtle background glow behind the text for specific cards */}
               {item.light && <GradientLight />}
-
-              {/* Made bg-n-8 solid (removed /80 opacity) to completely block any remaining white */}
-              <div 
-                className="absolute inset-0.5 bg-n-8 transition-colors duration-300 group-hover:bg-n-7 group-hover:shadow-[inset_0_0_30px_rgba(59,130,246,0.15)]" 
-                style={{ clipPath: `url(#benefits)` }}
-              >
-              </div>
-
-              <ClipPath />
             </div>
           ))}
         </div>
