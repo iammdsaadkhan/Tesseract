@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Inter, Orbitron, Poppins } from "next/font/google";
 import "./globals.css";
+import CursorEffect from "@/components/design/cursor-effect";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -32,6 +33,9 @@ export default function RootLayout({
         className={`${inter.variable} ${orbitron.variable} ${poppins.variable} bg-n-8 text-n-1 antialiased`}
         style={{ backgroundColor: "#0E0C15" }}
       >
+        {/* The neon cursor effect is now active globally! */}
+        <CursorEffect />
+        
         {children}
       </body>
     </html>
