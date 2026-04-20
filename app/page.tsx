@@ -4,7 +4,7 @@ import Hero from "@/components/sections/hero";
 import Benefits from "@/components/sections/benefits";
 import Collaboration from "@/components/sections/collaboration";
 import Roadmap from "@/components/sections/roadmap";
-import Services from "@/components/sections/services"; // <-- IMPORT THE NEW SECTION
+import Services from "@/components/sections/services"; // <-- This imports it
 import JoinUs from "@/components/sections/join-us"; 
 import ButtonGradient from "@/components/svg/button-gradient";
 import { cn } from "@/lib/utils";
@@ -19,7 +19,7 @@ export default function Home() {
         <Collaboration />     {/* Our Communities */}
         <Roadmap />           {/* Upcoming & Past Events */}
         
-        <Services />          {/* THE NEW SECTION GOES HERE */}
+        <Services />          {/* <-- THIS IS WHAT MAKES IT SHOW UP ON SCREEN */}
         
         <JoinUs />            {/* Ready to Join? */}
         <Footer />
