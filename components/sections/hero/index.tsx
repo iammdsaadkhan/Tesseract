@@ -23,7 +23,8 @@ const Hero = (props: Props) => {
         
         {/* TEXT CONTENT */}
         <div className="relative z-1 mx-auto mb-16 max-w-[62rem] text-center md:mb-20 lg:mb-24">
-          <h1 className="font-orbitron text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-color-4 via-color-5 to-color-1 drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">
+          {/* CHANGED: Made the main TESSERACT text pure white with a clean white glow */}
+          <h1 className="font-orbitron text-5xl md:text-7xl lg:text-8xl font-black mb-6 tracking-wider text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
             TESSERACT
           </h1>
           
@@ -80,7 +81,7 @@ const Hero = (props: Props) => {
                 {/* Subtle overlay to ensure text/UI elements pop */}
                 <div className="absolute inset-0 bg-n-8/30"></div>
 
-                {/* Floating Notification Box (Replaces 'Code Generation') */}
+                {/* Floating Notification Box */}
                 <div className="absolute top-[30%] right-[2rem] hidden w-[16rem] xl:flex flex-col bg-n-8/90 backdrop-blur-md border border-n-6 rounded-2xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-1 cursor-default">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-color-5/20 text-xl">
@@ -98,7 +99,7 @@ const Hero = (props: Props) => {
                   </div>
                 </div>
 
-                {/* Floating Bottom Bar (Replaces 'AI is generating') */}
+                {/* Floating Bottom Bar */}
                 <div className="absolute bottom-6 left-5 right-5 md:bottom-10 md:left-1/2 md:right-auto md:w-[26rem] md:-translate-x-1/2 flex items-center justify-center gap-4 h-[3.5rem] px-6 bg-n-8/90 backdrop-blur-md border border-n-6 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                   <div className="flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-color-4 animate-bounce" style={{ animationDelay: "0ms" }}></div>
