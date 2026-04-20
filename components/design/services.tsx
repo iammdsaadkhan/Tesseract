@@ -1,7 +1,7 @@
 import React from "react";
-import Section from "../../layout/section";
-import Heading from "../../atoms/heading";
-import { Gradient } from "../../design/services";
+import Section from "@/components/layout/section";
+import Heading from "@/components/atoms/heading";
+import { Gradient } from "@/components/design/services";
 import { cn } from "@/lib/utils";
 
 // Tesseract specific data (hardcoded here so you don't have to mess with constants.ts)
@@ -91,7 +91,7 @@ const Services = () => {
                       key={index}
                       className={cn(
                         "flex items-center justify-center w-10 h-10 md:w-15 md:h-15 rounded-2xl bg-n-7 border border-n-6 shadow-lg transition-transform hover:scale-110 cursor-pointer",
-                        index === 2 && "bg-color-1/20 border-color-1 shadow-[0_0_15px_rgba(239,68,68,0.4)]" // Highlights the middle icon
+                        index === 2 && "bg-color-1/20 border-color-1 shadow-[0_0_15px_rgba(239,68,68,0.4)]"
                       )}
                     >
                       <span className="text-xl md:text-3xl">{icon}</span>
