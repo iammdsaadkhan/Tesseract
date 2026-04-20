@@ -21,10 +21,8 @@ const Benefits = (props: Props) => {
           {benefits.map((item) => (
             <div
               key={item.id}
-              className="relative block bg-[length:100%_100%] bg-no-repeat p-0.5 md:max-w-sm group hover:-translate-y-2 transition-transform duration-300"
-              style={{
-                backgroundImage: `url(${item.backgroundUrl})`,
-              }}
+              // Removed the inline style background URL to kill the light SVG
+              className="relative block p-0.5 md:max-w-sm group hover:-translate-y-2 transition-transform duration-300"
             >
               <div className="pointer-events-none relative z-2 flex min-h-[22rem] flex-col p-[2.4rem]">
                 
@@ -39,12 +37,10 @@ const Benefits = (props: Props) => {
                 </p>
                 
                 <div className="mt-auto flex items-center">
-                  {/* Emoji Icon (Replaced Next.js Image component) */}
                   <div className="text-4xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                     {item.iconUrl}
                   </div>
                   
-                  {/* "Explore more" text updated with neon colors */}
                   <p className="ml-auto font-orbitron text-xs font-bold uppercase tracking-wider text-color-4 group-hover:text-color-5 transition-colors duration-300">
                     Explore
                   </p>
@@ -52,17 +48,15 @@ const Benefits = (props: Props) => {
                 </div>
               </div>
 
-              {/* Keeps the subtle light gradient for specific cards */}
               {item.light && <GradientLight />}
 
-              {/* Glassmorphism Background (Replaces solid dark grey) */}
+              {/* Made bg-n-8 solid (removed /80 opacity) to completely block any remaining white */}
               <div 
-                className="absolute inset-0.5 bg-n-2/80 backdrop-blur-md transition-colors duration-300 group-hover:bg-n-2/50 group-hover:shadow-[inset_0_0_30px_rgba(59,130,246,0.15)]" 
+                className="absolute inset-0.5 bg-n-8 transition-colors duration-300 group-hover:bg-n-7 group-hover:shadow-[inset_0_0_30px_rgba(59,130,246,0.15)]" 
                 style={{ clipPath: `url(#benefits)` }}
               >
               </div>
 
-              {/* Keeps Brainwave's custom SVG shape clipping */}
               <ClipPath />
             </div>
           ))}

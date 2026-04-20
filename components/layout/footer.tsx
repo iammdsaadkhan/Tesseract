@@ -8,7 +8,8 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <Section crosses className="!px-0 !py-10 bg-n-1 border-t border-n-6/50">
+    // Changed bg-n-1 to bg-n-8 to make the footer deep black
+    <Section crosses className="!px-0 !py-10 bg-n-8 border-t border-n-6/50">
       <div className="container flex items-center justify-center gap-10 max-sm:flex-col sm:justify-between">
         
         {/* TESSERACT COPYRIGHT TEXT */}
@@ -22,9 +23,9 @@ const Footer = (props: Props) => {
               key={item.id}
               href={item.url}
               target="_blank"
-              className="flex size-10 items-center justify-center rounded-full bg-n-2 border border-n-6/50 transition-all duration-300 hover:bg-n-1 hover:border-color-4 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] group"
+              // Changed bg-n-2 and hover:bg-n-1 to match dark theme
+              className="flex size-10 items-center justify-center rounded-full bg-n-7 border border-n-6/50 transition-all duration-300 hover:bg-n-8 hover:border-color-4 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] group"
             >
-              {/* Note: The Image component uses existing Brainwave SVGs until you replace them in public/assets */}
               <Image 
                 src={item.iconUrl} 
                 width={16} 
