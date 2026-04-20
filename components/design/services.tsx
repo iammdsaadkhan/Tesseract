@@ -1,10 +1,9 @@
 import React from "react";
 import Section from "@/components/layout/section";
 import Heading from "@/components/atoms/heading";
-import { Gradient } from "@/components/design/services";
 import { cn } from "@/lib/utils";
 
-// Tesseract specific data (hardcoded here so you don't have to mess with constants.ts)
+// Tesseract specific data
 const tesseractFeatures = [
   "Weekly Esports Tournaments",
   "Skill-based Matchmaking",
@@ -121,8 +120,10 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Background glowing gradient */}
-          <Gradient />
+          {/* NEW Custom Tesseract glowing gradient background */}
+          <div className="absolute top-1/2 left-1/2 w-[40rem] h-[40rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-30 mix-blend-color-dodge z-0">
+            <div className="absolute inset-0 bg-gradient-to-r from-color-4 via-color-1 to-color-5 blur-[100px] rounded-full"></div>
+          </div>
         </div>
       </div>
     </Section>
