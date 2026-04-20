@@ -4,10 +4,12 @@ import Hero from "@/components/sections/hero";
 import Benefits from "@/components/sections/benefits";
 import Collaboration from "@/components/sections/collaboration";
 import Roadmap from "@/components/sections/roadmap";
-import Services from "@/components/sections/services"; // <-- This imports it
 import JoinUs from "@/components/sections/join-us"; 
 import ButtonGradient from "@/components/svg/button-gradient";
 import { cn } from "@/lib/utils";
+
+// CHANGED: Pointing exactly to where you saved the file!
+import Services from "@/components/design/services"; 
 
 export default function Home() {
   return (
@@ -19,7 +21,7 @@ export default function Home() {
         <Collaboration />     {/* Our Communities */}
         <Roadmap />           {/* Upcoming & Past Events */}
         
-        <Services />          {/* <-- THIS IS WHAT MAKES IT SHOW UP ON SCREEN */}
+        <Services />          {/* The Bento Box! */}
         
         <JoinUs />            {/* Ready to Join? */}
         <Footer />
