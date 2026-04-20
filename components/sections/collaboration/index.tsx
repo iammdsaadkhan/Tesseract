@@ -3,7 +3,7 @@ import Section from "@/components/layout/section";
 import { collabContent, collabText } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import Heading from "@/components/atoms/heading"; // Fixed absolute import path!
+import Heading from "@/components/atoms/heading"; 
 
 // We map extra styling and route data to the content from your constants file
 const communityDetails = [
@@ -44,11 +44,11 @@ const Communities = () => {
                   details.shadow
                 )} />
                 
-                {/* Inner Card (Glassmorphism) */}
-                <div className="relative h-full flex flex-col items-center text-center m-[2px] rounded-2xl bg-n-1/90 backdrop-blur-xl p-8 transition-colors duration-300 group-hover:bg-n-1/70">
+                {/* Inner Card (Glassmorphism Fixed to Dark Mode) */}
+                <div className="relative h-full flex flex-col items-center text-center m-[2px] rounded-2xl bg-n-8/90 backdrop-blur-xl p-8 transition-colors duration-300 group-hover:bg-n-8/70">
                   
                   {/* Glowing Icon Placeholder */}
-                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-n-2 shadow-[inset_0_0_15px_rgba(255,255,255,0.05)] text-4xl">
+                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-n-7 shadow-[inset_0_0_15px_rgba(255,255,255,0.05)] text-4xl">
                     {details.icon}
                   </div>
                   

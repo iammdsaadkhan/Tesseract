@@ -65,7 +65,7 @@ const allEvents = [
 
 export default function EventsPage() {
   return (
-    <main className="bg-n-1 min-h-screen flex flex-col">
+    <main className="bg-n-8 min-h-screen flex flex-col">
       {/* We import the Navbar so the user can navigate back */}
       <Navbar />
       
@@ -98,8 +98,8 @@ export default function EventsPage() {
                     event.gradient
                   )} />
                   
-                  {/* Inner Glassmorphism Card */}
-                  <div className="relative h-full flex flex-col bg-n-1/90 backdrop-blur-xl rounded-[1.4rem] p-6 lg:p-8">
+                  {/* Inner Glassmorphism Card (Fixed to Dark Mode) */}
+                  <div className="relative h-full flex flex-col bg-n-8/90 backdrop-blur-xl rounded-[1.4rem] p-6 lg:p-8">
                     
                     {/* Top Row: Category Tag & Status Dot */}
                     <div className="flex justify-between items-start mb-6">

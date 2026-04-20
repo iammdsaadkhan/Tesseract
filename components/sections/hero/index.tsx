@@ -57,19 +57,19 @@ const Hero = (props: Props) => {
         {/* CENTRAL GAMING WINDOW PLACEHOLDER */}
         <div className={cn("relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24")}>
           <div className={cn("relative z-1 rounded-2xl p-0.5 bg-gradient-to-b from-color-4 via-color-5 to-color-1 shadow-[0_0_30px_rgba(168,85,247,0.3)]")}>
-            <div className={cn("relative bg-n-1 rounded-[1rem] overflow-hidden")}>
+            <div className={cn("relative bg-n-8 rounded-[1rem] overflow-hidden")}>
               
-              {/* Fake Window Header bar */}
-              <div className={cn("h-[1.5rem] bg-n-2 border-b border-n-6/50 flex items-center px-4 space-x-2")}>
+              {/* Fake Window Header bar (Fixed to Dark Mode) */}
+              <div className={cn("h-[1.5rem] bg-n-6 border-b border-n-5 flex items-center px-4 space-x-2")}>
                 <div className="w-3 h-3 rounded-full bg-color-1 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
                 <div className="w-3 h-3 rounded-full bg-color-2 shadow-[0_0_8px_rgba(234,179,8,0.8)]"></div>
                 <div className="w-3 h-3 rounded-full bg-color-3 shadow-[0_0_8px_rgba(34,197,94,0.8)]"></div>
               </div>
               
-              {/* Main Window Content */}
+              {/* Main Window Content (Fixed to Dark Mode) */}
               <div
                 className={cn(
-                  "aspect-[33/40] rounded-b-[0.9rem] flex items-center justify-center bg-n-1 md:aspect-[688/490] lg:aspect-[1024/490] relative overflow-hidden"
+                  "aspect-[33/40] rounded-b-[0.9rem] flex items-center justify-center bg-n-8 md:aspect-[688/490] lg:aspect-[1024/490] relative overflow-hidden"
                 )}
               >
                 {/* Subtle grid background inside the window */}
