@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-// You can import different effects here! 
-// Other options: ghostCursor, trailingCursor, followingDotCursor, emojiCursor
 import { fairyDustCursor } from "cursor-effects";
 
 export default function CursorEffect() {
   useEffect(() => {
-    // We initialize the cursor inside useEffect so it only runs in the browser
+    // @ts-ignore - The cursor-effects library lacks proper TypeScript construct signatures
     const cursor = new fairyDustCursor({
       // We are using Tesseract's neon theme colors (Red, Blue, Purple)
       colors: ["#ef4444", "#3b82f6", "#a855f7"],
@@ -20,6 +18,5 @@ export default function CursorEffect() {
     };
   }, []);
 
-  // This component doesn't render any HTML itself; the library injects a canvas into the <body>
   return null; 
 }
