@@ -12,6 +12,43 @@ const config = {
   ],
   theme: {
     extend: {
+      // Add this inside the `extend: { ... }` block of your tailwind.config.ts
+
+      colors: {
+        color: {
+          1: "#ef4444", // Red
+          2: "#eab308", // Yellow
+          3: "#22c55e", // Green
+          4: "#3b82f6", // Blue
+          5: "#a855f7", // Purple
+          6: "#FF98E2", // Legacy Pink
+        },
+        stroke: {
+          1: "#26242C",
+        },
+        n: {
+          1: "#FFFFFF",
+          2: "#CAC6DD",
+          3: "#ADA8C3",
+          4: "#757185",
+          5: "#3F3A52",
+          6: "#252134",
+          7: "#15131D",
+          8: "#0E0C15", // Deep Black
+          9: "#474060",
+          10: "#43435C",
+          11: "#1B1B2E",
+          12: "#2E2A41",
+          13: "#6C7275",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-sora)", ...fontFamily.sans],
+        code: "var(--font-code)",
+        grotesk: "var(--font-grotesk)",
+        orbitron: ["var(--font-orbitron)", "sans-serif"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
+      },
       colors: {
         color: {
           1: "#AC6AFF",
@@ -39,6 +76,7 @@ const config = {
           12: "#2E2A41",
           13: "#6C7275",
         },
+        
       },
       fontFamily: {
         sans: ["var(--font-sora)", ...fontFamily.sans],

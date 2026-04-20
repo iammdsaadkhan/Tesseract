@@ -1,15 +1,18 @@
-/* ... All your existing Brainwave CSS remains above ... */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: 252 24% 6%;
   --foreground: 0 0% 100%;
 }
 
-/* Force dark background on the body and remove syntax errors */
+/* Force dark background on the body */
 body {
   background-color: #0E0C15 !important;
   color: #FFFFFF !important;
 }
+
 .container {
   max-width: 80rem;
   margin-left: auto;
@@ -24,7 +27,7 @@ body {
     padding-right: 2rem;
   }
 }
-/* Ensure the navbar doesn't default to white in light-mode systems */
+
 .header-dark {
   background-color: rgba(14, 12, 21, 0.9) !important;
   backdrop-filter: blur(8px);
